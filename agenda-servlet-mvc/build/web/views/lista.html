@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Lista de Contactos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2>Agenda de Contactos</h2>
+        <a href="contacto?action=nuevo">Agregar nuevo</a>
+        <table border="1" cellpadding="5">
+        <tr>
+            <th>ID</th><th>Nombre</th><th>Email</th><th>Teléfono</th><th>Acciones</th>
+        </tr>
+         <c:forEach var="contacto" items="${contactos}">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="contacto?action=eliminar&id=${contacto.id}" 
+                       onclick="return confirm('¿Está seguro?')">Eliminar</a>
+                </td>
+            </tr>
+        </c:forEach>
+        </table>
+    </body>
+</html>
