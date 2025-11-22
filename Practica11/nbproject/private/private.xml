@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/java/web/EnviaDatos.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>23</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/marga/OneDrive/Documentos/NetBeansProjects/Practica11/web/index.html</file>
-            <file>file:/C:/Users/marga/OneDrive/Documentos/NetBeansProjects/Practica11/src/java/web/EnviaDatos.java</file>
-            <file>file:/C:/Users/marga/OneDrive/Documentos/NetBeansProjects/Practica11/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/marga/OneDrive/Documentos/5%20SEMESTRE%20FACULTAD/LAB%20POO/Practica11/web/index.html</file>
+            <file>file:/C:/Users/marga/OneDrive/Documentos/5%20SEMESTRE%20FACULTAD/LAB%20POO/Practica11/src/java/web/EnviaDatos.java</file>
+            <file>file:/C:/Users/marga/OneDrive/Documentos/5%20SEMESTRE%20FACULTAD/LAB%20POO/Practica11/src/java/modelo/Contacto.java</file>
+            <file>file:/C:/Users/marga/OneDrive/Documentos/5%20SEMESTRE%20FACULTAD/LAB%20POO/Practica11/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/marga/OneDrive/Documentos/5%20SEMESTRE%20FACULTAD/LAB%20POO/Practica11/web/META-INF/context.xml</file>
+            <file>file:/C:/Users/marga/OneDrive/Documentos/5%20SEMESTRE%20FACULTAD/LAB%20POO/Practica11/src/java/modelo/ContactoDao.java</file>
+            <file>file:/C:/Users/marga/OneDrive/Documentos/5%20SEMESTRE%20FACULTAD/LAB%20POO/Practica11/src/java/web/EditarContacto.java</file>
+            <file>file:/C:/Users/marga/OneDrive/Documentos/5%20SEMESTRE%20FACULTAD/LAB%20POO/Practica11/src/java/web/EliminarContacto.java</file>
         </group>
     </open-files>
 </project-private>

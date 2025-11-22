@@ -10,6 +10,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
+import java.util.List;
+import modelo.Contacto;
+import modelo.ContactoDao;
 
 /**
  *
@@ -27,31 +31,68 @@ public class EnviaDatos extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String fname;
-        String lname;
-        String phone;
-        String email;
+            throws ServletException, IOException, SQLException {
+        
+        String fname = request.getParameter("fname");
+        String lname = request.getParameter("lname");
+        String phone = request.getParameter("phone");
+        String email = request.getParameter("email");
+        
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet EnviaDatos</title>");
+            out.println("<title>Servlet Datos</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet EnviaDatos at " + request.getContextPath() + "</h1>");
-            fname = request.getParameter("fname");
-            lname = request.getParameter("lname");
-            phone = request.getParameter("phone");
-            email = request.getParameter("email");
-            out.println("<h1>Servlet EnviaDatos at " + request.getParameter("fname") + "</h1>");
-            out.println("<p>Servlet EnviaDatos at " + lname + "</p>"); 
-            out.println("<p>Servlet EnviaDatos at " + phone + "</p>"); 
-            out.println("<p>Servlet EnviaDatos at " + email + "</p>"); 
-            out.println("</body>");
-            out.println("</html>");
+            
+            ContactoDao dao = new ContactoDao();
+            
+            // CREAR (C)
+            Contacto nuevoContacto = new Contacto(fname, email, phone);
+            boolean exito = dao.agregarContacto(nuevoContacto);
+            
+            /*if (exito) {
+                out.println("Contacto Guardado Exitosamente!</h2>");
+            } else {
+                out.println("<Error: No se pudo guardar el contacto. Revise la consola.</h2>");
+            }*/
+            
+             out.println("<h2>Lista de contactos</h2>");
+
+            List<Contacto> contactos = dao.obtenerTodos();
+
+            out.println("<table border='1' cellpadding='5' cellspacing='0'>");
+            out.println("<tr>");
+            out.println("<th>ID</th>");
+            out.println("<th>Nombre</th>");
+            out.println("<th>Email</th>");
+            out.println("<th>Teléfono</th>");
+            out.println("<th>Acciones</th>");
+            out.println("</tr>");
+        
+            
+            for (Contacto c : contactos) {
+                out.println("<tr>");
+                out.println("<td>" + c.getId() + "</td>");
+                out.println("<td>" + c.getFname() + "</td>");
+                out.println("<td>" + c.getEmail() + "</td>");
+                out.println("<td>" + c.getPhone() + "</td>");
+
+                out.println("<td>"
+                        + "<a href='EditarContacto?id=" + c.getId() + "'>Modificar</a> | "
+                        + "<a href='EliminarContacto?id=" + c.getId() + "' onclick=\"return confirm('¿Seguro que deseas eliminar?');\">Eliminar</a>"
+                        + "</td>");
+
+                out.println("</tr>");
+            }
+
+            out.println("</table>");
+
+            out.println("<br><a href='index.html'>Volver al formulario</a>");
+            out.println("</body></html>");
         }
     }   // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -65,7 +106,11 @@ public class EnviaDatos extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            System.getLogger(EnviaDatos.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
     }
 
     /**
@@ -79,7 +124,11 @@ public class EnviaDatos extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            System.getLogger(EnviaDatos.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
     }
 
     /**
@@ -91,4 +140,8 @@ public class EnviaDatos extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    private String getId() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

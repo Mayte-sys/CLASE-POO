@@ -5,22 +5,35 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Agregar Nuevo Contacto</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>TODO write content</div>
         <form method="get" action="EnviaDatos">
-            <label for="fname">First name:</label><br>
-            <input type="text" id="fname" name="fname"><br>
-            <label for="lname">Last name:</label><br>
-            <input type="text" id="lname" name="lname"><br>
-            <label for="phone">Phone:</label><br>
-            <input type="text" id="phone" name="phone"><br>
-            <label for="email">Email:</label><br>
-            <input type="text" id="email" name="email"><br>
-            <input type="submit" value="Submit">
+            <fieldset>
+                <legend><h3>Agregar Nuevo Contacto</h3></legend> 
+                <table>
+                    <tr>
+                        <td align="right"><label for="fname">Nombre:</label></td>
+                        <td><input type="text" id="fname" name="fname" size="40" required></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><label for="phone">Teléfono:</label></td>
+                        <td><input type="text" id="phone" name="phone" size="40" required></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><label for="email">Email:</label></td>
+                        <td><input type="email" id="email" name="email" size="40" required></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="💾 Guardar Contacto"></td>
+                    </tr>
+                </table>
+            </fieldset>
          </form>
+         
     </body>
 </html>
+
